@@ -1,0 +1,253 @@
+/* ========================================
+   🧬 CET Study — 单词系统 Mock 数据
+   含 SM-2 遗忘曲线字段
+   ======================================== */
+
+import type { Word } from '@/types'
+import type { VocabularyStats } from '../types'
+
+/* SM-2 复习调度字段 */
+interface SM2Fields {
+  repetition: number    // 连续正确次数
+  easiness: number      // 易难度系数 (1.3 - 2.5)
+  interval: number      // 下次复习间隔（天）
+  nextReviewDate: string
+}
+
+type MockWord = Word & SM2Fields
+
+export const mockVocabularyStats: VocabularyStats = {
+  totalWords: 1284,
+  mastered: 342,
+  learning: 942,
+  newToday: 20,
+  reviewDue: 53,
+  streakDays: 7,
+}
+
+/* 20 个 Mock 单词 */
+export const mockWords: MockWord[] = [
+  // ===== CET-4 高频词 =====
+  {
+    id: '1', word: 'abandon', translation: 'v. 放弃；遗弃',
+    definition: 'to leave someone or something permanently',
+    phonetic: 'əˈbændən', difficulty: 'easy', level: 'cet4',
+    masterLevel: 4, tags: ['高频词', '动词'],
+    repetition: 3, easiness: 2.3, interval: 7, nextReviewDate: '2026-06-24',
+    examples: [
+      { en: 'He abandoned his family and fled the country.', zh: '他抛弃了家人并逃离了这个国家。' },
+      { en: 'They had to abandon the project due to lack of funding.', zh: '由于缺乏资金，他们不得不放弃这个项目。' },
+    ],
+  },
+  {
+    id: '2', word: 'contribute', translation: 'v. 贡献；捐献；促成',
+    definition: 'to give something in order to help achieve something',
+    phonetic: 'kənˈtrɪbjuːt', difficulty: 'easy', level: 'cet4',
+    masterLevel: 3, tags: ['高频词', '动词'],
+    repetition: 2, easiness: 2.1, interval: 4, nextReviewDate: '2026-06-21',
+    examples: [
+      { en: 'Everyone should contribute to the community.', zh: '每个人都应该为社区做出贡献。' },
+      { en: 'Several factors contributed to the economic growth.', zh: '多个因素促成了经济增长。' },
+    ],
+  },
+  {
+    id: '3', word: 'significant', translation: 'adj. 重要的；有意义的',
+    definition: 'large or important enough to be noticed',
+    phonetic: 'sɪɡˈnɪfɪkənt', difficulty: 'easy', level: 'cet4',
+    masterLevel: 3, tags: ['高频词', '形容词'],
+    repetition: 2, easiness: 2.0, interval: 3, nextReviewDate: '2026-06-20',
+    examples: [
+      { en: 'There has been a significant increase in sales.', zh: '销售额有了显著增长。' },
+      { en: 'This is a significant achievement for the team.', zh: '这对团队来说是一个重要的成就。' },
+    ],
+  },
+  {
+    id: '4', word: 'available', translation: 'adj. 可用的；有效的',
+    definition: 'able to be used or obtained',
+    phonetic: 'əˈveɪləbl', difficulty: 'easy', level: 'cet4',
+    masterLevel: 2, tags: ['高频词', '形容词'],
+    repetition: 1, easiness: 1.8, interval: 2, nextReviewDate: '2026-06-19',
+    examples: [
+      { en: 'The report is now available online.', zh: '这份报告现在可以在线获取。' },
+    ],
+  },
+  {
+    id: '5', word: 'environment', translation: 'n. 环境',
+    definition: 'the surroundings or conditions in which a person lives',
+    phonetic: 'ɪnˈvaɪrənmənt', difficulty: 'easy', level: 'cet4',
+    masterLevel: 4, tags: ['高频词', '名词'],
+    repetition: 4, easiness: 2.4, interval: 14, nextReviewDate: '2026-07-01',
+    examples: [
+      { en: 'We need to protect the environment for future generations.', zh: '我们需要为后代保护环境。' },
+    ],
+  },
+  {
+    id: '6', word: 'opportunity', translation: 'n. 机会；时机',
+    definition: 'a time or set of circumstances that makes something possible',
+    phonetic: 'ˌɒpəˈtjuːnəti', difficulty: 'easy', level: 'cet4',
+    masterLevel: 3, tags: ['高频词', '名词'],
+    repetition: 2, easiness: 2.1, interval: 5, nextReviewDate: '2026-06-22',
+    examples: [
+      { en: 'This is a great opportunity to learn from experts.', zh: '这是一个向专家学习的好机会。' },
+    ],
+  },
+  {
+    id: '7', word: 'phenomenon', translation: 'n. 现象',
+    definition: 'a fact or event that can be observed',
+    phonetic: 'fəˈnɒmɪnən', difficulty: 'medium', level: 'cet4',
+    masterLevel: 2, tags: ['高频词', '名词'],
+    repetition: 1, easiness: 1.7, interval: 1, nextReviewDate: '2026-06-18',
+    examples: [
+      { en: 'Globalization is a complex phenomenon.', zh: '全球化是一个复杂的现象。' },
+      { en: 'The phenomenon is rarely observed in nature.', zh: '这种现象在自然中很少被观察到。' },
+    ],
+  },
+  {
+    id: '8', word: 'approach', translation: 'v./n. 接近；方法',
+    definition: 'a way of dealing with something',
+    phonetic: 'əˈprəʊtʃ', difficulty: 'easy', level: 'cet4',
+    masterLevel: 4, tags: ['高频词', '动词'],
+    repetition: 3, easiness: 2.2, interval: 6, nextReviewDate: '2026-06-23',
+    examples: [
+      { en: 'We need to adopt a new approach to solve this problem.', zh: '我们需要采用新的方法来解决这个问题。' },
+    ],
+  },
+  // ===== CET-6 中高级词 =====
+  {
+    id: '9', word: 'sophisticated', translation: 'adj. 精密的；复杂的；老练的',
+    definition: 'highly developed and complex',
+    phonetic: 'səˈfɪstɪkeɪtɪd', difficulty: 'hard', level: 'cet6',
+    masterLevel: 1, tags: ['低频词', '形容词'],
+    repetition: 0, easiness: 1.5, interval: 0, nextReviewDate: '2026-06-17',
+    examples: [
+      { en: 'The software uses sophisticated algorithms.', zh: '该软件使用了复杂的算法。' },
+      { en: 'She is a sophisticated and well-traveled woman.', zh: '她是一位老练且阅历丰富的女性。' },
+    ],
+  },
+  {
+    id: '10', word: 'inevitable', translation: 'adj. 不可避免的',
+    definition: 'certain to happen and impossible to avoid',
+    phonetic: 'ɪnˈevɪtəbl', difficulty: 'medium', level: 'cet6',
+    masterLevel: 2, tags: ['高频词', '形容词'],
+    repetition: 1, easiness: 1.8, interval: 2, nextReviewDate: '2026-06-19',
+    examples: [
+      { en: 'Change is inevitable in any organization.', zh: '变革在任何组织中都是不可避免的。' },
+    ],
+  },
+  {
+    id: '11', word: 'ambiguous', translation: 'adj. 模糊的；模棱两可的',
+    definition: 'open to more than one interpretation',
+    phonetic: 'æmˈbɪɡjuəs', difficulty: 'medium', level: 'cet6',
+    masterLevel: 1, tags: ['低频词', '形容词'],
+    repetition: 0, easiness: 1.6, interval: 0, nextReviewDate: '2026-06-17',
+    examples: [
+      { en: 'The contract terms are deliberately ambiguous.', zh: '合同条款故意模棱两可。' },
+    ],
+  },
+  {
+    id: '12', word: 'prerequisite', translation: 'n. 先决条件；前提',
+    definition: 'something that is required before something else can happen',
+    phonetic: 'priːˈrekwɪzɪt', difficulty: 'medium', level: 'cet6',
+    masterLevel: 1, tags: ['低频词', '名词'],
+    repetition: 0, easiness: 1.7, interval: 0, nextReviewDate: '2026-06-17',
+    examples: [
+      { en: 'A degree is a prerequisite for this position.', zh: '学位是担任这一职位的先决条件。' },
+    ],
+  },
+  {
+    id: '13', word: 'consolidate', translation: 'v. 巩固；合并',
+    definition: 'to make something stronger or more solid',
+    phonetic: 'kənˈsɒlɪdeɪt', difficulty: 'medium', level: 'cet6',
+    masterLevel: 0, tags: ['低频词', '动词'],
+    repetition: 0, easiness: 1.5, interval: 0, nextReviewDate: '2026-06-17',
+    examples: [
+      { en: 'The company consolidated its position in the market.', zh: '公司巩固了其在市场中的地位。' },
+    ],
+  },
+  {
+    id: '14', word: 'perpetual', translation: 'adj. 永久的；持续的',
+    definition: 'never ending or changing',
+    phonetic: 'pəˈpetʃuəl', difficulty: 'hard', level: 'cet6',
+    masterLevel: 0, tags: ['低频词', '形容词'],
+    repetition: 0, easiness: 1.4, interval: 0, nextReviewDate: '2026-06-17',
+    examples: [
+      { en: 'The city is in a state of perpetual motion.', zh: '这座城市永远处于运转之中。' },
+    ],
+  },
+  {
+    id: '15', word: 'autonomous', translation: 'adj. 自治的；自主的',
+    definition: 'having the freedom to govern itself',
+    phonetic: 'ɔːˈtɒnəməs', difficulty: 'medium', level: 'cet6',
+    masterLevel: 2, tags: ['中频词', '形容词'],
+    repetition: 1, easiness: 1.9, interval: 3, nextReviewDate: '2026-06-20',
+    examples: [
+      { en: 'The region became autonomous in 1990.', zh: '该地区于1990年获得自治。' },
+    ],
+  },
+  // ===== 更多 CET-4 =====
+  {
+    id: '16', word: 'demonstrate', translation: 'v. 证明；示范；演示',
+    definition: 'to show clearly that something exists or is true',
+    phonetic: 'ˈdemənstreɪt', difficulty: 'easy', level: 'cet4',
+    masterLevel: 3, tags: ['高频词', '动词'],
+    repetition: 2, easiness: 2.0, interval: 4, nextReviewDate: '2026-06-21',
+    examples: [
+      { en: 'The experiment demonstrates the principle clearly.', zh: '实验清楚地证明了这一原理。' },
+    ],
+  },
+  {
+    id: '17', word: 'consequence', translation: 'n. 结果；后果',
+    definition: 'a result of an action or situation',
+    phonetic: 'ˈkɒnsɪkwəns', difficulty: 'easy', level: 'cet4',
+    masterLevel: 4, tags: ['高频词', '名词'],
+    repetition: 3, easiness: 2.3, interval: 8, nextReviewDate: '2026-06-25',
+    examples: [
+      { en: 'He suffered the consequences of his actions.', zh: '他承受了自己行为的后果。' },
+    ],
+  },
+  {
+    id: '18', word: 'elaborate', translation: 'adj. 精心制作的；详尽的 v. 详细阐述',
+    definition: 'involving many carefully arranged parts',
+    phonetic: 'ɪˈlæbərət', difficulty: 'medium', level: 'cet6',
+    masterLevel: 1, tags: ['中频词', '形容词'],
+    repetition: 0, easiness: 1.6, interval: 0, nextReviewDate: '2026-06-17',
+    examples: [
+      { en: 'The plan was too elaborate to be practical.', zh: '这个计划过于复杂，不切实际。' },
+    ],
+  },
+  {
+    id: '19', word: 'overcome', translation: 'v. 克服；战胜',
+    definition: 'to successfully deal with a problem',
+    phonetic: 'ˌəʊvəˈkʌm', difficulty: 'easy', level: 'cet4',
+    masterLevel: 2, tags: ['高频词', '动词'],
+    repetition: 1, easiness: 1.9, interval: 2, nextReviewDate: '2026-06-19',
+    examples: [
+      { en: 'She overcame her fear of public speaking.', zh: '她克服了对公开演讲的恐惧。' },
+    ],
+  },
+  {
+    id: '20', word: 'transformation', translation: 'n. 转变；改革',
+    definition: 'a complete change in something',
+    phonetic: 'ˌtrænsfəˈmeɪʃn', difficulty: 'medium', level: 'cet6',
+    masterLevel: 1, tags: ['中频词', '名词'],
+    repetition: 0, easiness: 1.7, interval: 0, nextReviewDate: '2026-06-17',
+    examples: [
+      { en: 'The digital transformation changed the industry.', zh: '数字化转型改变了这个行业。' },
+    ],
+  },
+]
+
+/* 模拟待复习单词（基于 nextReviewDate <= 今天） */
+export function getDueWords(): MockWord[] {
+  const today = '2026-06-17'
+  return mockWords.filter((w) => w.nextReviewDate <= today)
+}
+
+/* 模拟今日新词 */
+export function getNewWords(count = 5): MockWord[] {
+  return mockWords
+    .filter((w) => w.masterLevel === 0)
+    .slice(0, count)
+}
+
+export type { MockWord, SM2Fields }
